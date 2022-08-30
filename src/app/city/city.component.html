@@ -1,0 +1,43 @@
+<mat-toolbar color="primary">
+  <mat-icon (click)="goBack()">arrow_back</mat-icon><span> {{ cityName }}</span>
+</mat-toolbar>
+
+<div fxLayout="row border">
+  <mat-card class="card" fxFlex="20">
+    <div fxLayout="row border" fxLayoutAlign="center" class="temp pb-2">
+      <span>{{ selectedCity.temp_f }}</span>
+    </div>
+    <div
+      fxLayout="row "
+      fxLayoutAlign="space-around center"
+      class="mt condition"
+    >
+      <div fxLayout="column border">{{ selectedCity.wind_mph }}</div>
+      <div fxLayout="column border">{{ selectedCity.condition }}</div>
+    </div>
+  </mat-card>
+</div>
+
+<div *ngIf="cities?.length > 0" fxLayout="row border">
+  <mat-card class="card" fxFlex="20" *ngFor="let item of cities">
+    <div fxLayout="row border" fxLayoutAlign="center" class="temp pb-2">
+      <span>{{ item?.country }}</span>
+    </div>
+    <div
+      fxLayout="row "
+      fxLayoutAlign="space-around center"
+      class="mt condition city-name"
+    >
+      <div fxLayout="column border">{{ item?.name }}</div>
+      <div fxLayout="column border">{{ item?.region }}</div>
+    </div>
+    <div
+      fxLayout="row "
+      fxLayoutAlign="space-around center"
+      class="mt condition"
+    >
+      <div fxLayout="column border">{{ item?.lat }}</div>
+      <div fxLayout="column border">{{ item?.lon }}</div>
+    </div>
+  </mat-card>
+</div>

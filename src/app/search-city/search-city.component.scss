@@ -1,0 +1,13 @@
+.weather-section {
+  padding: 1rem;
+  label,
+  input {
+    margin-right: 1rem;
+  }
+
+  .error-text {
+    color: red;
+    font-size: 1rem;
+    padding: 1rem 0;
+  }
+}
