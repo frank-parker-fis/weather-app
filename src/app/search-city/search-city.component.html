@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <span>Weather App</span>
+</mat-toolbar>
+
+<div [formGroup]="weatherForm" class="weather-section">
+  <label for="cit">City: </label>
+  <input type="text" formControlName="city" minlength="1" />
+  <input [disabled]="city?.invalid" type="submit" (click)="search()" />
+
+  <div *ngIf="city?.dirty || city?.touched">
+    <div class="error-text" *ngIf="city?.errors?.['required']">
+      * City Name must be at least 1 characters long.
+    </div>
+
+    <div class="error-text" *ngIf="city?.errors?.['pattern']">
+      * City Name must be alphabetic letters only.
+    </div>
+  </div>
+</div>
